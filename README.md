@@ -45,3 +45,7 @@ Then use whatever tools you normally do to compile LaTeX. The main LaTeX files a
 
 Once `make` is run so that `version.txt` gets generated, you need not run
 `make` again. You can just perform the usual LaTeX cycle from your favorite editor.
+
+## Smoking Cessation App Example
+
+A minimal Flask application to help track smoking cessation progress and run friendly competitions. Install dependencies from `smoking_app/requirements.txt` and run `python smoking_app/app.py`.

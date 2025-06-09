@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ competition.name }}</h2>
+{% if not current_user.is_anonymous %}
+  <a href="{{ url_for('join_competition', competition_id=competition.id) }}">Join Competition</a>
+{% endif %}
+<h3>Participants</h3>
+<ul>
+  {% for entry in entries %}
+    <li>{{ entry.user.username }} - {{ entry.progress }} days smoke free</li>
+  {% endfor %}
+</ul>
+{% endblock %}

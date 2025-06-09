@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Welcome to the Quit Smoking App</h1>
+<ul>
+  {% for comp in competitions %}
+    <li><a href="{{ url_for('competition', competition_id=comp.id) }}">{{ comp.name }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

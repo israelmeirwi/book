@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<p>Welcome, {{ current_user.username }}!</p>
+<h3>Competitions</h3>
+<ul>
+  {% for comp in competitions %}
+    <li><a href="{{ url_for('competition', competition_id=comp.id) }}">{{ comp.name }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
