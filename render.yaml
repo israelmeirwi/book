@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: smoking-cessation-app
+    env: python
+    buildCommand: pip install -r smoking_app/requirements.txt
+    startCommand: gunicorn smoking_app.app:create_app()
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:////opt/render/project/src/instance/smoking_app.db
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /
+    disk:
+      name: data
+      mountPath: /opt/render/project/src/instance
+      sizeGB: 1
