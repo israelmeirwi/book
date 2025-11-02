@@ -45,3 +45,18 @@ Then use whatever tools you normally do to compile LaTeX. The main LaTeX files a
 
 Once `make` is run so that `version.txt` gets generated, you need not run
 `make` again. You can just perform the usual LaTeX cycle from your favorite editor.
+
+## Smoking Cessation App Example
+
+A minimal Flask application to help track smoking cessation progress and run friendly competitions. Install dependencies from `smoking_app/requirements.txt` and run `python smoking_app/app.py`.
+
+### Getting a shareable link
+
+To let other people try the demo without running it locally, you can deploy it to a hosted platform such as [Render](https://render.com/):
+
+1. Commit the repository to your own GitHub account.
+2. Visit Render and choose **New ➜ Blueprint**. Point it at your GitHub repository.
+3. Render will detect the provided `render.yaml` file and create a web service that installs dependencies with `pip install -r smoking_app/requirements.txt` and serves the Flask app through Gunicorn.
+4. Once the build finishes, Render exposes a public HTTPS URL you can share. The blueprint also provisions a persistent disk and sets `DATABASE_URL` and `SECRET_KEY` automatically so that the SQLite database survives restarts.
+
+If you prefer another host (Heroku, Railway, etc.), configure it to run `gunicorn smoking_app.app:create_app()` after installing the dependencies, and set the `DATABASE_URL` environment variable to the database connection string you want to use.
